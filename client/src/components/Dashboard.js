@@ -12,7 +12,7 @@ class Dashboard extends Component {
     }
 
     renderSurveyCards() {
-        return _.map(this.props.survey, ({title, subject, body, _id, yes, no}) => {
+        return _.map(this.props.survey, ({title, subject, body, _id, yes, no, lastResponded}) => {
             return (
                 <div className="row" key={_id}>
                     <div className="col s12 m12">
@@ -27,6 +27,8 @@ class Dashboard extends Component {
                                 <p>{yes}</p>
                                 <span className="card-title"><b>No:</b></span>
                                 <p>{no}</p>
+                                <span className="card-title"><b>Last Responded:</b></span>
+                                <p>{lastResponded}</p>
                             </div>
                             {/* <div className="card-action">
                                 <a href="#!">See more...</a>
@@ -34,6 +36,9 @@ class Dashboard extends Component {
                         </div>
                     </div>
                 </div>
+                // <div>
+
+                // </div>
             );
         });
     }
