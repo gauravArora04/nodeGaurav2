@@ -9,18 +9,29 @@ const Mailer = require('../services/Mailer');
 const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
 
 const Survey = mongoose.model('surveys');
+const AppRating = mongoose.model('appratings');
 
 module.exports = (app) => {
+
+    //Delete a survey
+    app.post('/api/surveys/delete/:surveyId', (req, res) => {
+        
+    });
+
+    //This will redirect users to a normal thank you page after they have responded through the survey
     app.get('/api/surveys/:surveyId/:choice', (req, res) => {
     res.send('Thanks for voting!');
     });
 
-    app.post('/api/surveys/webhooks', (req, res) => {
-    const p = new Path('/api/surveys/:surveyId/:choice');
 
+    //This will get response from SendGrid and Update matching Mongo Document
+    app.post('/api/surveys/webhooks', (req, res) => {
+
+    const surveyRatingPath = new Path('/api/surveys/:surveyId/:choice');
+        
     _.chain(req.body)
         .map(({ email, url }) => {      
-            const match = p.test(new URL(url).pathname);
+            const match = surveyRatingPath.test(new URL(url).pathname);
             if (match) {
                 return { email, surveyId: match.surveyId, choice: match.choice };
             }
@@ -43,17 +54,54 @@ module.exports = (app) => {
             ).exec();
         })
         .value();
+    
+    
+    // const appRatingPath = new Path('/api/surveys/appRating/:choice');
 
-    res.send({});
+    // const hello = _.chain(req.body)
+    //     .map(({ email, url }) => {
+    //         const match = appRatingPath.test(new URL(url).pathname);
+    //         if(match){
+    //             return { email, choice: match.choice };
+    //         }
+    //     })
+    //     .compact()
+    //     .uniqBy('email')
+    //     .each(({ email, choice }) => {
+    //         // const existingRating = AppRating.findOne({recipients: {$elemMatch: { email: email, responded: false }}});
+    //         // console.log(existingRating);
+    //         AppRating.updateOne(
+    //         {
+    //             _id: '633aa369b017673acccb213d',
+    //             recipients: {
+    //                 $elemMatch: { email: email, responded: false },
+    //             },
+    //         },
+    //         {
+    //             $inc: { [choice]: 1 },
+    //             // $addToSet: { 'recipients.$.responded': true },
+    //             lastResponseDate: new Date()
+    //         },
+    //         {
+    //             upsert: true, new: true, setDefaultsOnInsert: true
+    //         }
+    //         ).exec();
+    //     })
+    //     .value();
+
+    res.send({});  //telling sendgrid that everything working fine.....chill...!!!
     });
 
+
+    //Getting existing survey list for user and sending to front end
     app.get('/api/user_surveys', requireLogin, async (req, res) => {
-        var existingSurveys = await Survey.find({ _user: req.user.id });
+        const existingSurveys = await Survey.find({ _user: req.user.id })
+            .select({ recipients: false });
         res.send(existingSurveys);
-        // console.log(existingSurveys[existingSurveys.length-1].recipients);
-        // console.log(existingSurveys);
     });
 
+
+    //To send new surveys to recipients
     app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
         const { title, subject, body, recipients } = req.body;
 

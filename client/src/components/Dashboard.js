@@ -12,35 +12,61 @@ class Dashboard extends Component {
     }
 
     renderSurveyCards() {
-        return _.map(this.props.survey, ({title, subject, body, _id, yes, no, lastResponded}) => {
+        return _.map(this.props.survey, survey => {
             return (
-                <div className="row" key={_id}>
-                    <div className="col s12 m12">
-                        <div className="card hoverable teal lighten-1">
-                            <div className="card-content white-text">
-                                <span className="card-title"><b>Title:</b> {title}</span>
-                                <span className="card-title"><b>Subject:</b></span>
-                                <p>{subject}</p>
-                                <span className="card-title"><b>Body:</b></span>
-                                <p>{body}</p>
-                                <span className="card-title"><b>Yes:</b></span>
-                                <p>{yes}</p>
-                                <span className="card-title"><b>No:</b></span>
-                                <p>{no}</p>
-                                <span className="card-title"><b>Last Responded:</b></span>
-                                <p>{lastResponded}</p>
-                            </div>
-                            {/* <div className="card-action">
-                                <a href="#!">See more...</a>
-                            </div> */}
-                        </div>
+                <div className="card hoverable darken-1" key={survey._id}>
+                    <div className="card-content">
+                        <span className="card-title">
+                            <b>Title:</b> {survey.title}
+                            {/* Add functionality to delete a survey */}
+                            {/* <Link 
+                            to={ this.props.auth ? '/api/surveys/delete/${survey._id}' : '/'} 
+                            className="left brand-logo"
+                            > */}
+                                <i className='material-icons right'>delete_forever</i>
+                            {/* </Link> */}
+                        </span>
+                        <p>
+                            <b>Body:</b> {survey.body}
+                        </p>
+                        <p className="right">
+                            <b>Sent On:</b> {new Date(survey.dateSent).toLocaleDateString()}
+                        </p>
+                    </div>
+                    <div className="card-action">
+                        <a><b>Yes:</b> {survey.yes}</a>
+                        <a><b>No:</b> {survey.no}</a>
                     </div>
                 </div>
-                // <div>
+              );
+            // return (
+            //     <div className="row" key={survey._id}>
+            //         <div className="col s12 m12">
+            //             <div className="card hoverable teal lighten-1">
+            //                 <div className="card-content white-text">
+            //                     <span className="card-title"><b>Title:</b> {survey.title}</span>
+            //                     <span className="card-title"><b>Subject:</b></span>
+            //                     <p>{survey.subject}</p>
+            //                     <span className="card-title"><b>Body:</b></span>
+            //                     <p>{survey.body}</p>
+            //                     <span className="card-title"><b>Yes:</b></span>
+            //                     <p>{survey.yes}</p>
+            //                     <span className="card-title"><b>No:</b></span>
+            //                     <p>{survey.no}</p>
+            //                     <span className="card-title"><b>Last Responded:</b></span>
+            //                     <p>{survey.lastResponded}</p>
+            //                 </div>
+            //                 {/* <div className="card-action">
+            //                     <a href="#!">See more...</a>
+            //                 </div> */}
+            //             </div>
+            //         </div>
+            //     </div>
+            //     // <div>
 
-                // </div>
-            );
-        });
+            //     // </div>
+            // );
+        }).reverse();
     }
 
     renderFab() {
@@ -116,3 +142,23 @@ function mapStateToProps({ auth, survey }){
 }
 
 export default connect(mapStateToProps, actions)(Dashboard);
+
+
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import SurveyList from './surveys/SurveyList';
+
+// const Dashboard = () => {
+//   return (
+//     <div>
+//       <SurveyList />
+//       <div className="fixed-action-btn">
+//         <Link to="/surveys/new" className="btn-floating btn-large red">
+//           <i className="material-icons">add</i>
+//         </Link>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Dashboard;
