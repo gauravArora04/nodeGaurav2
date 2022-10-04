@@ -2,8 +2,8 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from '../actions'
-import Images from '../images'
+import * as actions from '../actions';
+import Images from '../images';
 
 class Dashboard extends Component {
 
@@ -18,13 +18,10 @@ class Dashboard extends Component {
                     <div className="card-content">
                         <span className="card-title">
                             <b>Title:</b> {survey.title}
-                            {/* Add functionality to delete a survey */}
-                            {/* <Link 
-                            to={ this.props.auth ? '/api/surveys/delete/${survey._id}' : '/'} 
-                            className="left brand-logo"
-                            > */}
-                                <i className='material-icons right'>delete_forever</i>
-                            {/* </Link> */}
+                            <button data-target="deleteModal" class="modal-trigger right"
+                            onClick={ () => document.getElementById('deleteModalForm').action =`/api/surveys/${survey._id}` }>
+                                    <i className='material-icons'>delete_forever</i>
+                            </button>
                         </span>
                         <p>
                             <b>Body:</b> {survey.body}
@@ -39,49 +36,15 @@ class Dashboard extends Component {
                     </div>
                 </div>
               );
-            // return (
-            //     <div className="row" key={survey._id}>
-            //         <div className="col s12 m12">
-            //             <div className="card hoverable teal lighten-1">
-            //                 <div className="card-content white-text">
-            //                     <span className="card-title"><b>Title:</b> {survey.title}</span>
-            //                     <span className="card-title"><b>Subject:</b></span>
-            //                     <p>{survey.subject}</p>
-            //                     <span className="card-title"><b>Body:</b></span>
-            //                     <p>{survey.body}</p>
-            //                     <span className="card-title"><b>Yes:</b></span>
-            //                     <p>{survey.yes}</p>
-            //                     <span className="card-title"><b>No:</b></span>
-            //                     <p>{survey.no}</p>
-            //                     <span className="card-title"><b>Last Responded:</b></span>
-            //                     <p>{survey.lastResponded}</p>
-            //                 </div>
-            //                 {/* <div className="card-action">
-            //                     <a href="#!">See more...</a>
-            //                 </div> */}
-            //             </div>
-            //         </div>
-            //     </div>
-            //     // <div>
-
-            //     // </div>
-            // );
-        }).reverse();
+        }).reverse(); //To reverse sort the surveys list
     }
 
     renderFab() {
         return(
             <div className="fixed-action-btn">
-                <Link id='newSurvey' to= '/surveys/new' className="btn-floating btn-large red accent-2"> {/* this.props.auth.creds == 0 ? '#modal2' : */}
+                <Link id='newSurvey' to= '/surveys/new' className="btn-floating btn-large red accent-2">
                     <i className="material-icons">add</i>
                 </Link>
-                {/* tap target is set to open through body tag of the public html file */}
-                <div className="tap-target teal" data-target="newSurvey">
-                    <div className="tap-target-content">
-                    <h5>Create Survey!</h5>
-                    <p>Create a new survey from here.</p>
-                    </div>
-                </div>
             </div>
         );
     }
@@ -124,14 +87,20 @@ class Dashboard extends Component {
         return (
             <div className='container'>
                 {this.renderDashboard()}
-            {/* ----Credits error Popup---- */}
-                            <div id="modal2" className="modal red-text">
-                                <div className="modal-content">
-                                <h4>Not enough credits</h4>
-                                <p>Please add credits to send out surveys</p>
-                                </div>
-                            </div>
-            {/* ----Credits error Popup---- */}
+                <div id="deleteModal" class="modal bottom-sheet">
+                    <div class="modal-content">
+                        <h4>Delete Survey?</h4>
+                        <p>Do you really want to delete this survey?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <form id="deleteModalForm" method='POST'>
+                            <button className="modal-close waves-effect waves-green btn-flat">
+                                Delete
+                                <i className='material-icons right'>delete_forever</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
         );
     };
@@ -142,23 +111,3 @@ function mapStateToProps({ auth, survey }){
 }
 
 export default connect(mapStateToProps, actions)(Dashboard);
-
-
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-// import SurveyList from './surveys/SurveyList';
-
-// const Dashboard = () => {
-//   return (
-//     <div>
-//       <SurveyList />
-//       <div className="fixed-action-btn">
-//         <Link to="/surveys/new" className="btn-floating btn-large red">
-//           <i className="material-icons">add</i>
-//         </Link>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Dashboard;

@@ -25,7 +25,7 @@ class SurveyForm extends Component {
                     </Link>
                     <button className='teal btn-flat right waves-effect waves-light white-text' type="submit">
                         Next
-                        <i className="material-icons right">done</i>
+                        <i className="material-icons right">keyboard_arrow_right</i>
                     </button>
                 </form>
             </div>
@@ -40,7 +40,7 @@ function validate(values) {
 
     _.each(formFields, ({name}) => {
         if(!values[name]){
-            errors[name] = 'You must provide ' + name + '!'
+            errors[name] = 'You must provide ' + name + '...!!!'
         }
     });
 

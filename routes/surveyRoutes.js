@@ -14,13 +14,18 @@ const AppRating = mongoose.model('appratings');
 module.exports = (app) => {
 
     //Delete a survey
-    app.post('/api/surveys/delete/:surveyId', (req, res) => {
-        
+    app.post('/api/surveys/:id', requireLogin, (req, res) => {
+        const id = req.params.id;
+        Survey.findByIdAndDelete(id, function (err, docs) {
+            if (err){ console.log(err) }
+            else console.log("Deleted : ", docs);
+        });
+        res.redirect('back');
     });
 
     //This will redirect users to a normal thank you page after they have responded through the survey
     app.get('/api/surveys/:surveyId/:choice', (req, res) => {
-    res.send('Thanks for voting!');
+        res.send('Thanks for voting!');
     });
 
 
