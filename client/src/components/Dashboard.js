@@ -33,6 +33,7 @@ class Dashboard extends Component {
                     <div className="card-action">
                         <a><b>Yes:</b> {survey.yes}</a>
                         <a><b>No:</b> {survey.no}</a>
+                        <a className="right"><b>Avg. Rt. :</b> {(survey.yes / (survey.yes + survey.no)) ? ((survey.yes / (survey.yes + survey.no))*5) : 0} / 5</a>
                     </div>
                 </div>
               );
