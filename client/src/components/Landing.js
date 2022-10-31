@@ -49,7 +49,7 @@ class Landing extends Component {
                 You can send out surveys for feedback of your products from here. Go to Dashboard and create new Surveys. 
                 
                 <br></br><br></br>
-                <img alt='landing' src={Images.landing} width="600" height="450"></img>
+                <img alt='landing' src={Images.landing} ></img>
             </div>
         );
     }

@@ -23,7 +23,7 @@ class Header extends Component {
                     <Payments key='PaymentButton' />,
                     <li key='LogoutButton'>
                         <a className="waves-effect waves-light btn modal-trigger" href="#modal1">
-                            <img alt='profilePic' className="btn-floating btn-small" style={{ position: 'relative', right: '10px'}} src={this.props.auth.profilePic ? this.props.auth.profilePic: Images.logo} />
+                            <img alt='profilePic' className="btn-floating btn-small" style={{ position: 'relative', right: '10px'}} src={this.props.auth.profilePic ? this.props.auth.profilePic: null} />
                             &nbsp;{this.props.auth.name}(Logout)
                         </a>
                     </li>
