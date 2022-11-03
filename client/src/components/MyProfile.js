@@ -13,7 +13,7 @@ class MyProfile extends Component {
             default:
                 return (
                     <div>    
-                        <div className="container" style={{marginTop: '15px'}}>
+                        <div id="profileDiv" className="container" style={{marginTop: '15px', marginBottom: '100px'}}>
                             <div className="row valign-wrapper">
                                 <div className="col s10">
                                     {/* Profile Pic */}
@@ -61,6 +61,21 @@ class MyProfile extends Component {
                                 </div>
                             </div>
                         </div>
+                        {/* <div className='container' style={{marginBottom: '20px'}}>
+                            <button type='button' id="editButton" title='Edit' className="btn"
+                            onClick={ () => {
+                                // document.getElementById('profileDiv').querySelectorAll('input').disabled = true;
+                                // document.getElementById('editButton').display = 'none';
+                                var form = document.getElementById("profileDiv");
+                                var elements = form.children;
+                                for (var i = 0, len = elements.length; i < len; ++i) {
+                                    elements[i].readOnly = true;
+                                }
+                                } }>
+                                <i class="material-icons">edit</i>
+                                &nbsp;Edit
+                            </button>
+                        </div> */}
                     </div>
                 );
         }

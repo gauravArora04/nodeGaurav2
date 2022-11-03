@@ -19,6 +19,7 @@ class Header extends Component {
             ];
             default:
                 return [//key is always required when returning a list of elements
+                    <li key='DashboardButton'><a className="btn" href="/dashboard">Dashboard</a></li>,
                     <li key='AvailableCredits'><a className="btn" href="#!">Credits: {this.props.auth.creds}</a></li>,
                     <Payments key='PaymentButton' />,
                     <li key='LogoutButton'>

@@ -44,9 +44,8 @@ class Landing extends Component {
     render() {
         return(
             <div style={{ textAlign: 'center' }}>
-                <h5> <a href='/dashboard'>Go to dashboard... </a> </h5>
                 <h1> nodeGaurav </h1>
-                You can send out surveys for feedback of your products from here. Go to Dashboard and create new Surveys. 
+                You can send out surveys for feedback of your products from our application. Login/Signup...Go to Dashboard and create new Surveys. 
                 
                 <br></br><br></br>
                 <img alt='landing' src={Images.landing} ></img>
