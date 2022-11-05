@@ -27,7 +27,7 @@ class Dashboard extends Component {
                             <b>Body:</b> {survey.body}
                         </p>
                         <p className="right">
-                            <b>Sent On:</b> {new Date(survey.dateSent).toLocaleDateString()}
+                            <b>Sent On:</b> <u title={new Date(survey.dateSent).toString()}> {new Date(survey.dateSent).toLocaleDateString()} </u>
                         </p>
                     </div>
                     <div className="card-action">

@@ -1,4 +1,4 @@
-export function getCurrentDate(separator='.'){
+export default function getCurrentDate(separator='.'){
 
     let newDate = new Date()
     let date = newDate.getDate();
