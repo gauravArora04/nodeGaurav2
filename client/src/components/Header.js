@@ -13,10 +13,8 @@ class Header extends Component {
 
             case false:
                 return [
-                    //<li key='fb'><a className="waves-effect waves-light btn" href="/auth/facebook">Login with Facebook</a></li>,
-                    <li key='google'><a className="waves-effect waves-light btn" href="/auth/google">Login with Google</a></li>,
-                    //<li key='customLoginRegister'><a className="waves-effect waves-light btn" href="/register">Login/Register</a></li>
-            ];
+                    <li key='google'><a className="waves-effect waves-light btn" href="/auth/google">Login with Google</a></li>
+                ];
             default:
                 return [//key is always required when returning a list of elements
                     <li key='DashboardButton'><a className="btn" href="/dashboard">Dashboard</a></li>,

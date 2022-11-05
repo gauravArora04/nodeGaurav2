@@ -13,16 +13,6 @@ const AppRating = mongoose.model('appratings');
 
 module.exports = (app) => {
 
-    //Delete a survey
-    app.post('/api/surveys/:id', requireLogin, (req, res) => {
-        const id = req.params.id;
-        Survey.findByIdAndDelete(id, function (err, docs) {
-            if (err){ console.log(err) }
-            else console.log("Deleted : ", docs);
-        });
-        res.redirect('back');
-    });
-
     //This will redirect users to a normal thank you page after they have responded through the survey
     app.get('/api/surveys/:surveyId/:choice', (req, res) => {
         res.send('Thanks for voting!');
@@ -59,42 +49,18 @@ module.exports = (app) => {
             ).exec();
         })
         .value();
-    
-    
-    // const appRatingPath = new Path('/api/surveys/appRating/:choice');
-
-    // const hello = _.chain(req.body)
-    //     .map(({ email, url }) => {
-    //         const match = appRatingPath.test(new URL(url).pathname);
-    //         if(match){
-    //             return { email, choice: match.choice };
-    //         }
-    //     })
-    //     .compact()
-    //     .uniqBy('email')
-    //     .each(({ email, choice }) => {
-    //         // const existingRating = AppRating.findOne({recipients: {$elemMatch: { email: email, responded: false }}});
-    //         // console.log(existingRating);
-    //         AppRating.updateOne(
-    //         {
-    //             _id: '633aa369b017673acccb213d',
-    //             recipients: {
-    //                 $elemMatch: { email: email, responded: false },
-    //             },
-    //         },
-    //         {
-    //             $inc: { [choice]: 1 },
-    //             // $addToSet: { 'recipients.$.responded': true },
-    //             lastResponseDate: new Date()
-    //         },
-    //         {
-    //             upsert: true, new: true, setDefaultsOnInsert: true
-    //         }
-    //         ).exec();
-    //     })
-    //     .value();
 
     res.send({});  //telling sendgrid that everything working fine.....chill...!!!
+    });
+
+    //Delete a survey
+    app.post('/api/surveys/:id', requireLogin, (req, res) => {
+        const id = req.params.id;
+        Survey.findByIdAndDelete(id, function (err, docs) {
+            if (err){ console.log(err) }
+            else console.log("Deleted : ", docs);
+        });
+        res.redirect('back');
     });
 
 
