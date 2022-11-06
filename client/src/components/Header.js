@@ -13,6 +13,7 @@ class Header extends Component {
 
             case false:
                 return [
+                    <li key='howTo'><a className="waves-effect waves-light btn" href="/howto">FAQ</a></li>,
                     <li key='google'><a className="waves-effect waves-light btn" href="/auth/google">Login with Google</a></li>
                 ];
             default:
@@ -20,9 +21,10 @@ class Header extends Component {
                     <li key='DashboardButton'><a className="btn" href="/dashboard">Dashboard</a></li>,
                     <li key='AvailableCredits'><a className="btn" href="#!">Credits: {this.props.auth.creds}</a></li>,
                     <Payments key='PaymentButton' />,
+                    <li key='howTo'><a className="waves-effect waves-light btn" href="/howto">FAQ</a></li>,
                     <li key='LogoutButton'>
                         <a className="waves-effect waves-light btn modal-trigger" href="#modal1">
-                            <img alt='profilePic' className="btn-floating btn-small" style={{ position: 'relative', right: '10px'}} src={this.props.auth.profilePic ? this.props.auth.profilePic: null} />
+                            <img alt='profilePic' className="btn-floating btn-small" style={{ position: 'relative', right: '5px',top: '-2px' }} src={this.props.auth.profilePic ? this.props.auth.profilePic: null} />
                             &nbsp;{this.props.auth.name}(Logout)
                         </a>
                     </li>

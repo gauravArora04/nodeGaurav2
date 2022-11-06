@@ -9,9 +9,9 @@ module.exports = app => {
             amount: 5000,
             currency: 'inr',
             source: req.body.id,
-            description: 'My First Test Charge (created for API docs)',
+            description: 'Charging money for adding credits',
         });
-        req.user.creds +=5;
+        req.user.creds +=10;
         const user = await req.user.save();
 
         res.send(user);

@@ -10,6 +10,7 @@ import Landing from './Landing';
 import Footer from './Footer';
 // import Parallax from './Parallax';
 import My404Component from './My404Component';
+import HowTo from './HowTo';
 import SurveyNew from './surveys/SurveyNew';
 // import Register_Login from './login_register/Register_Login';
 import MyProfile from './MyProfile';
@@ -42,6 +43,7 @@ class App extends Component {
                             <Route exact path="/" component={Landing} />
                             <Route exact path="/dashboard" component={Dashboard} />
                             <Route path="/surveys/new" component={SurveyNew} />
+                            <Route exact path="/howto" component={HowTo} />
                             {/* <Route path='/myprofile' component={MyProfile} /> */}
                             <Route component={My404Component} />
                         </Switch>

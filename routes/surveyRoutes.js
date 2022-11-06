@@ -54,7 +54,7 @@ module.exports = (app) => {
     });
 
     //Delete a survey
-    app.post('/api/surveys/:id', requireLogin, (req, res) => {
+    app.post('/api/surveys/delete/:id', requireLogin, (req, res) => {
         const id = req.params.id;
         Survey.findByIdAndDelete(id, function (err, docs) {
             if (err){ console.log(err) }

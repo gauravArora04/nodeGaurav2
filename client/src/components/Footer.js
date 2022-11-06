@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 const LINKS = [
     { name: 'Instagram', url: 'https://www.instagram.com/gaurav_arora_04/' },
     { name: 'Facebook', url: 'https://www.facebook.com/gaurav.arora97/' },
-    { name: 'Twitter', url: 'https://twitter.com/gau971' },
+    { name: 'Twitter', url: 'https://twitter.com/aroraGauravGA' },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/gauravArora0497/' }
 ]
 

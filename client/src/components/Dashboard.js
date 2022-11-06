@@ -19,7 +19,7 @@ class Dashboard extends Component {
                         <span className="card-title">
                             <b>Title:</b> {survey.title}
                             <button title='Delete?' data-target="deleteModal" class="modal-trigger right"
-                            onClick={ () => document.getElementById('deleteModalForm').action =`/api/surveys/${survey._id}` }>
+                            onClick={ () => document.getElementById('deleteModalForm').action =`/api/surveys/delete/${survey._id}` }>
                                     <i className='material-icons'>delete_forever</i>
                             </button>
                         </span>
@@ -95,6 +95,7 @@ class Dashboard extends Component {
                     </div>
                     <div class="modal-footer">
                         <form id="deleteModalForm" method='POST'>
+                        <a href="#!" className="modal-close waves-effect waves-green btn-flat"><b>Cancel</b></a>
                             <button className="modal-close waves-effect waves-green btn-flat">
                                 Delete
                                 <i className='material-icons right'>delete_forever</i>
