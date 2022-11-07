@@ -13,7 +13,7 @@ import My404Component from './My404Component';
 import HowTo from './HowTo';
 import SurveyNew from './surveys/SurveyNew';
 // import Register_Login from './login_register/Register_Login';
-import MyProfile from './MyProfile';
+// import MyProfile from './MyProfile';
 
 
 class App extends Component {

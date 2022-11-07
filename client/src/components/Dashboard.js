@@ -31,9 +31,9 @@ class Dashboard extends Component {
                         </p>
                     </div>
                     <div className="card-action">
-                        <a><b>Yes:</b> {survey.yes}</a>
-                        <a><b>No:</b> {survey.no}</a>
-                        <a className="right"><b>Avg. Rt. :</b> {(survey.yes / (survey.yes + survey.no)) ? ((survey.yes / (survey.yes + survey.no))*5) : 0} / 5</a>
+                        <a href="#!"><b>Yes:</b> {survey.yes}</a>
+                        <a href="#!"><b>No:</b> {survey.no}</a>
+                        <a href="#!" className="right"><b>Avg. Rt. :</b> {(survey.yes / (survey.yes + survey.no)) ? ((survey.yes / (survey.yes + survey.no))*5) : 0} / 5</a>
                     </div>
                 </div>
               );
@@ -98,7 +98,7 @@ class Dashboard extends Component {
                         <a href="#!" className="modal-close waves-effect waves-green btn-flat"><b>Cancel</b></a>
                             <button className="modal-close waves-effect waves-green btn-flat">
                                 Delete
-                                <i className='material-icons right'>delete_forever</i>
+                                <i className='material-icons right'>delete</i>
                             </button>
                         </form>
                     </div>
