@@ -8,7 +8,7 @@ class HowTo extends Component {
                 <h4>How do I create a new survey?</h4>
                 <p>
                     To create a new survey, follow below steps:
-                    <ol>
+                    <ol className='collection'>
                         <li>
                             First, login to the application using your Google Id.
                         </li>
