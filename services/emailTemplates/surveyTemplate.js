@@ -17,12 +17,3 @@ module.exports = survey => {
         </html>
     `;
 };
-
-// <p>Please rate our feedback app(5 being the highest rating and 1 being the lowest)</p>
-// <div>
-//     <a href="${keys.redirectDomain}api/surveys/appRating/one"> 1 </a>
-//     <a href="${keys.redirectDomain}api/surveys/appRating/two"> 2 </a>
-//     <a href="${keys.redirectDomain}api/surveys/appRating/three"> 3 </a>
-//     <a href="${keys.redirectDomain}api/surveys/appRating/four"> 4 </a>
-//     <a href="${keys.redirectDomain}api/surveys/appRating/five"> 5 </a>
-// </div>
