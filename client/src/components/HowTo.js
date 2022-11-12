@@ -6,6 +6,27 @@ class HowTo extends Component {
         return (
             <ul className='collapsible'>
                 <li>
+                    <h4 className='collapsible-header'>How to Login?</h4>
+
+                    <p className='collapsible-body'>
+                        Follow below steps:
+                        <ol>
+                            <li>
+                                Visit https://nodegaurav.herokuapp.com/.
+                            </li>
+                            <li>
+                                From the top right corner, in the banner, you'll see the login button named "LOGIN WITH GOOGLE". cLICK ON IT.
+                            </li>
+                            <li>
+                                You'll be redirected to google authentication page where you can use your gmail id and password to login.
+                            </li>
+                            <li>
+                                Once done, you'll be redirected back to the Dashboard page of the application.
+                            </li>
+                        </ol>
+                    </p>
+                </li>
+                <li>
                     <h4 className='collapsible-header'>How do I create a new survey?</h4>
 
                     <p className='collapsible-body'>
