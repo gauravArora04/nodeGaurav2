@@ -46,7 +46,7 @@ class App extends Component {
                                 <Route path="/surveys/new" component={SurveyNew} />
                                 <Route exact path="/faq" component={HowTo} />
                                 {/* <Route path='/myprofile' component={MyProfile} /> */}
-                                <Route component={My404Component} />
+                                <Route path="*" component={My404Component} />
                             </main>
                         </Switch>
                         <Footer />
