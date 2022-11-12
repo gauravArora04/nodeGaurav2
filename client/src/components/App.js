@@ -43,7 +43,7 @@ class App extends Component {
                             <Route exact path="/" component={Landing} />
                             <Route exact path="/dashboard" component={Dashboard} />
                             <Route path="/surveys/new" component={SurveyNew} />
-                            <Route exact path="/howto" component={HowTo} />
+                            <Route exact path="/faq" component={HowTo} />
                             {/* <Route path='/myprofile' component={MyProfile} /> */}
                             <Route component={My404Component} />
                         </Switch>

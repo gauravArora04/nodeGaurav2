@@ -5,7 +5,7 @@ class HowTo extends Component {
     render() {
         return (
             <ul className='collapsible'>
-                <li>
+                <li className='active'>
                     <h4 className='collapsible-header'>How to Login?</h4>
 
                     <p className='collapsible-body'>
