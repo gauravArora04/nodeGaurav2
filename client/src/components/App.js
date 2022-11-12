@@ -36,7 +36,7 @@ class App extends Component {
         return (
             <div>
                 <BrowserRouter>
-                    <div>
+                    <div id="routes-body">
                         <Header />
                         <Switch>
                             <Route exact path="/" component={Landing} />
