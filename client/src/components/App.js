@@ -40,12 +40,14 @@ class App extends Component {
                     <div>
                         <Header />
                         <Switch>
-                            <Route exact path="/" component={Landing} />
-                            <Route exact path="/dashboard" component={Dashboard} />
-                            <Route path="/surveys/new" component={SurveyNew} />
-                            <Route exact path="/faq" component={HowTo} />
-                            {/* <Route path='/myprofile' component={MyProfile} /> */}
-                            <Route component={My404Component} />
+                            <main>
+                                <Route exact path="/" component={Landing} />
+                                <Route exact path="/dashboard" component={Dashboard} />
+                                <Route path="/surveys/new" component={SurveyNew} />
+                                <Route exact path="/faq" component={HowTo} />
+                                {/* <Route path='/myprofile' component={MyProfile} /> */}
+                                <Route component={My404Component} />
+                            </main>
                         </Switch>
                         <Footer />
                     </div>

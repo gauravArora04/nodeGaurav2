@@ -34,7 +34,7 @@ class Header extends Component {
     
     render() {
         return (
-            <div>
+            <div id="header">
                 <nav>
                     <div className="nav-wrapper teal lighten-3">
                         <div>
