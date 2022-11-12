@@ -20,9 +20,11 @@ class SurveyNew extends Component {
 
     render() {
         return(
+            <main>
             <div className='container'>
                 {this.renderContent()}
             </div>
+            </main>
         )
     }
 }

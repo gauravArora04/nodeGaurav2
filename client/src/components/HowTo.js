@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Images from '../images'
 
 class HowTo extends Component {
     render() {
         return (
+            <main>
             <ul className='collapsible flow-text'>
                 <li className='active'>
                     <h4 className='collapsible-header'><i class="material-icons">search</i>How to Login?</h4>
@@ -84,6 +84,7 @@ class HowTo extends Component {
                     </p>
                 </li>
             </ul>
+            </main>
         )
     }
 }

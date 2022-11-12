@@ -4,6 +4,7 @@ import Images from '../images'
 class Landing extends Component {
     render() {
         return(
+            <main>
             <div style={{ textAlign: 'center' }}>
                 <h1><b> nodeGaurav </b></h1>
                 You can send out surveys for feedback of your products from our application. Login/Signup...Go to Dashboard and create new Surveys. 
@@ -12,6 +13,7 @@ class Landing extends Component {
                 <br></br><br></br>
                 <img alt='landing' src={Images.landing} ></img>
             </div>
+            </main>
         );
     }
 }

@@ -91,6 +91,7 @@ class Dashboard extends Component {
 
     render() {
         return (
+            <main>
             <div className='container'>
                 {this.renderDashboard()}
                 <div id="deleteModal" class="modal bottom-sheet">
@@ -109,6 +110,7 @@ class Dashboard extends Component {
                     </div>
                 </div>
             </div>
+            </main>
         );
     };
 };
