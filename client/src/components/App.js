@@ -8,7 +8,6 @@ import Header from './Header';
 import Dashboard from './Dashboard';
 import Landing from './Landing';
 import Footer from './Footer';
-// import Parallax from './Parallax';
 import My404Component from './My404Component';
 import HowTo from './HowTo';
 import SurveyNew from './surveys/SurveyNew';
@@ -40,14 +39,12 @@ class App extends Component {
                     <div>
                         <Header />
                         <Switch>
-                            <main>
-                                <Route exact path="/" component={Landing} />
-                                <Route exact path="/dashboard" component={Dashboard} />
-                                <Route path="/surveys/new" component={SurveyNew} />
-                                <Route exact path="/faq" component={HowTo} />
-                                {/* <Route path='/myprofile' component={MyProfile} /> */}
-                                <Route path="*" component={My404Component} />
-                            </main>
+                            <Route exact path="/" component={Landing} />
+                            <Route exact path="/dashboard" component={Dashboard} />
+                            <Route path="/surveys/new" component={SurveyNew} />
+                            <Route exact path="/faq" component={HowTo} />
+                            {/* <Route path='/myprofile' component={MyProfile} /> */}
+                            <Route path="*" component={My404Component} />
                         </Switch>
                         <Footer />
                     </div>
