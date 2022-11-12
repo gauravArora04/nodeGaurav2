@@ -68,8 +68,11 @@ class Dashboard extends Component {
                     case false:
                         return (
                             <div>
-                                <h4 className=''>You do not have any existing surveys...!!! <br></br><br></br> Add credits from the menu and click on the plus button to create one...!!! <br></br><br></br> 
-                                Use 5555 5555 5555 4444 as card number and give any future date and any CVV for testing purpose.</h4><br></br>
+                                <h4 className='flow-text'>
+                                    <blockquote>You do not have any existing surveys...!!!</blockquote>
+                                    <blockquote>Visit the <a href="/faq">FAQ</a> page to know how to add credits to your account and send new surveys.</blockquote> 
+                                    <blockquote>To add credits, you can use "5555 5555 5555 4444" as card number and give any future date and any CVV because we do not accept real money.</blockquote>
+                                </h4>
                                 {this.renderFab()}
                             </div>
                         );

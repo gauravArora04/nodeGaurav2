@@ -4,7 +4,7 @@ import Images from '../images'
 class HowTo extends Component {
     render() {
         return (
-            <ul className='collapsible'>
+            <ul className='collapsible flow-text'>
                 <li className='active'>
                     <h4 className='collapsible-header'><i class="material-icons">search</i>How to Login?</h4>
 
