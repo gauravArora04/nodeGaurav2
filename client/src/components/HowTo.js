@@ -15,7 +15,7 @@ class HowTo extends Component {
                                 Visit https://nodegaurav.herokuapp.com/.
                             </li>
                             <li>
-                                From the top right corner, in the banner, you'll see the login button named "LOGIN WITH GOOGLE". cLICK ON IT.
+                                From the top right corner, in the banner, you'll see the login button named "LOGIN WITH GOOGLE". Click on it.
                             </li>
                             <li>
                                 You'll be redirected to google authentication page where you can use your gmail id and password to login.

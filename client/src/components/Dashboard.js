@@ -41,13 +41,15 @@ class Dashboard extends Component {
     }
 
     renderFab() {
-        return(
-            <div className="fixed-action-btn">
-                <Link id='newSurvey' to= '/surveys/new' className="btn-floating btn-large red accent-2">
-                    <i className="material-icons">add</i>
-                </Link>
-            </div>
-        );
+        if(this.props.auth.creds > 0){
+            return(
+                <div className="fixed-action-btn">
+                    <Link id='newSurvey' to= '/surveys/new' className="btn-floating btn-large red accent-2">
+                        <i className="material-icons">add</i>
+                    </Link>
+                </div>
+            );
+        }
     }
 
     renderDashboard() {
