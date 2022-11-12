@@ -20,7 +20,7 @@ class Footer extends Component {
 
     render() {
         return (
-            <footer className="page-footer teal lighten-3">
+            <footer className="page-footer teal lighten-3" style={{ position: "fixed", bottom:"0", left:"0", width:"100%" }}>
                 <div className="container">
                     <div className="row">
                         <div className="col l6 s12">
