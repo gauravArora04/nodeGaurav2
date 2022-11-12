@@ -13,15 +13,15 @@ class Header extends Component {
 
             case false:
                 return [
-                    <li key='faq'><a className="waves-effect waves-light btn" href="/faq">FAQ</a></li>,
+                    <li key='faq'><Link className="waves-effect waves-light btn" to="/faq">FAQ</Link></li>,
                     <li key='google'><a className="waves-effect waves-light btn" href="/auth/google">Login with Google</a></li>
                 ];
             default:
                 return [//key is always required when returning a list of elements
-                    <li key='DashboardButton'><a className="btn" href="/dashboard">Dashboard</a></li>,
+                    <li key='DashboardButton'><Link className="waves-effect waves-light btn" to="/dashboard">Dashboard</Link></li>,
                     <li key='AvailableCredits'><a className="btn" href="#!">Credits: {this.props.auth.creds}</a></li>,
                     <Payments key='PaymentButton' />,
-                    <li key='faq'><a className="waves-effect waves-light btn" href="/faq">FAQ</a></li>,
+                    <li key='faq'><Link className="waves-effect waves-light btn" to="/faq">FAQ</Link></li>,
                     <li key='LogoutButton'>
                         <a className="waves-effect waves-light btn modal-trigger" href="#modal1">
                             <img alt='profilePic' className="btn-floating btn-small" style={{ position: 'relative', right: '5px',top: '-2px' }} src={this.props.auth.profilePic ? this.props.auth.profilePic: null} />

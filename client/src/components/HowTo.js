@@ -6,7 +6,7 @@ class HowTo extends Component {
         return (
             <ul className='collapsible'>
                 <li className='active'>
-                    <h4 className='collapsible-header'>How to Login?</h4>
+                    <h4 className='collapsible-header'><i class="material-icons">search</i>How to Login?</h4>
 
                     <p className='collapsible-body'>
                         Follow below steps:
@@ -27,7 +27,7 @@ class HowTo extends Component {
                     </p>
                 </li>
                 <li>
-                    <h4 className='collapsible-header'>How do I create a new survey?</h4>
+                    <h4 className='collapsible-header'><i class="material-icons">search</i>How do I create a new survey?</h4>
 
                     <p className='collapsible-body'>
                         To create a new survey, follow below steps:
@@ -60,7 +60,7 @@ class HowTo extends Component {
 
 
                 <li>
-                    <h4 className='collapsible-header'>How do I add credits in my account?</h4>
+                    <h4 className='collapsible-header'><i class="material-icons">search</i>How do I add credits in my account?</h4>
 
                     <p className='collapsible-body'>
                         To add credits, follow below steps:
