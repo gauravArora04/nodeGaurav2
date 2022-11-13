@@ -16,6 +16,7 @@ module.exports = (app) => {
     //This will redirect users to a normal thank you page after they have responded through the survey
     app.get('/api/surveys/:surveyId/:choice', (req, res) => {
         res.send('Thanks for voting!');
+        res.redirect('/thanks');
     });
 
 
