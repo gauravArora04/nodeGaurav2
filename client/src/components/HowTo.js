@@ -11,7 +11,7 @@ class HowTo extends Component {
                     <ol className='collapsible-body'>
                     Follow below steps:
                         <li>
-                            Visit https://nodegaurav.herokuapp.com/.
+                            Visit <b><u>{ window.location.href.split('/')[2] }</u></b>.
                         </li>
                         <li>
                             From the top right corner, in the banner, you'll see the login button named "LOGIN WITH GOOGLE". Click on it.
