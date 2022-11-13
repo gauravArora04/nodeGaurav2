@@ -11,6 +11,7 @@ import Footer from './Footer';
 import My404Component from './My404Component';
 import HowTo from './HowTo';
 import SurveyNew from './surveys/SurveyNew';
+import ThanksComponent from './ThanksComponent'
 // import Register_Login from './login_register/Register_Login';
 // import MyProfile from './MyProfile';
 
@@ -43,6 +44,7 @@ class App extends Component {
                             <Route exact path="/dashboard" component={Dashboard} />
                             <Route path="/surveys/new" component={SurveyNew} />
                             <Route exact path="/faq" component={HowTo} />
+                            <Route exact path="/thanks" component={ThanksComponent} />
                             {/* <Route path='/myprofile' component={MyProfile} /> */}
                             <Route path="*" component={My404Component} />
                         </Switch>
