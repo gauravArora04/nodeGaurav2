@@ -71,8 +71,8 @@ class Header extends Component {
                                 </div>
                                 
                                 <div className="modal-footer">
-                                <a href="#!" className="modal-close waves-effect waves-green btn-flat"><b>Cancel</b></a>
-                                <a href="/api/logout" className="modal-close waves-effect waves-green btn-flat"><b>Confirm</b></a>
+                                <a href="#!" className="modal-close btn-flat"><b>Cancel</b></a>
+                                <a href="/api/logout" className="modal-close btn-flat"><b>Confirm</b></a>
                                 </div>
                             </div>
                             {/* ----Logout Popup---- */}
