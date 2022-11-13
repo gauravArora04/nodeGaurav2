@@ -32,15 +32,6 @@ class App extends Component {
         });
     }
 
-    renderSurveys() {
-        if(this.props.auth && this.props.auth.creds > 0){
-            return(
-                <Route path="/surveys/new" component={SurveyNew} />
-            );
-        }
-        return ( <main className='errorMessage'> Please login and add credits to your account to view this page. </main> );
-    }
-
     render() {
         return (
             <div>
@@ -50,7 +41,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/" component={Landing} />
                             <Route exact path="/dashboard" component={Dashboard} />
-                            { this.renderSurveys() }
+                            <Route path="/surveys/new" component={SurveyNew} />
                             <Route exact path="/faq" component={HowTo} />
                             {/* <Route path='/myprofile' component={MyProfile} /> */}
                             <Route path="*" component={My404Component} />
@@ -63,8 +54,4 @@ class App extends Component {
     }
 }
 
-function mapStateToProps({auth}) {
-    return {auth};
-}
-
-export default connect(mapStateToProps, actions)(App);
+export default connect(null, actions)(App);
