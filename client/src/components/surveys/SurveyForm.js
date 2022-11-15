@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import { Link } from 'react-router-dom';
 import SurveyField from './SurveyField';
 import validateEmails from '../../utils/validateEmails';
 import formFields from './formFields';
@@ -20,9 +19,9 @@ class SurveyForm extends Component {
                     onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}
                 >
                     {this.renderFields()}
-                    <Link to='/dashboard' className='red btn-flat white-text'>
+                    <a href='/dashboard' className='red btn-flat white-text'>
                         Cancel
-                    </Link>
+                    </a>
                     <button className='teal btn-flat right waves-effect waves-light white-text' type="submit">
                         Next
                         <i className="material-icons right">keyboard_arrow_right</i>
