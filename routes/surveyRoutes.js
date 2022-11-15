@@ -9,13 +9,12 @@ const Mailer = require('../services/Mailer');
 const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
 
 const Survey = mongoose.model('surveys');
-const AppRating = mongoose.model('appratings');
 
 module.exports = (app) => {
 
     //This will redirect users to a normal thank you page after they have responded through the survey
     app.get('/api/surveys/:surveyId/:choice', (req, res) => {
-        res.send('Thanks for voting!');
+        // res.send('Thanks for voting!');
         res.redirect('/thanks');
     });
 
@@ -51,7 +50,7 @@ module.exports = (app) => {
         })
         .value();
 
-    res.send({});  //telling sendgrid that everything working fine.....chill...!!!
+    res.send({});  //telling sendgrid that everything working fine
     });
 
     //Delete a survey

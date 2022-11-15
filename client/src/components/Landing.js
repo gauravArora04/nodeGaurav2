@@ -11,7 +11,7 @@ class Landing extends Component {
                 <br></br>
                 <u>To add credits to your account, you can use dummy card details, like Number - 5555 5555 5555 4444 and any expiry/cvv will work.</u>
                 <br></br><br></br>
-                <img alt='landing' src={Images.landing} ></img>
+                <img alt='landing' style={{height:"300px"}} src={Images.landing} ></img>
             </div>
             </main>
         );
