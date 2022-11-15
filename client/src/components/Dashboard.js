@@ -1,8 +1,8 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import SurveyList from './surveys/SurveyList'
 import Images from '../images';
 
 class Dashboard extends Component {
@@ -11,37 +11,8 @@ class Dashboard extends Component {
         this.props.fetchSurveys();
     }
 
-    renderSurveyCards() {
-        return _.map(this.props.survey, survey => {
-            return (
-                <div className="card hoverable darken-1" key={survey._id}>
-                    <div className="card-content">
-                        <span className="card-title">
-                            <b>Title:</b> {survey.title}
-                            <button title='Delete?' data-target="deleteModal" className="modal-trigger right"
-                            onClick={ () => document.getElementById('deleteModalForm').action =`/api/surveys/delete/${survey._id}` }>
-                                    <i className='material-icons'>delete_forever</i>
-                            </button>
-                        </span>
-                        <p>
-                            <b>Body:</b> {survey.body}
-                        </p>
-                        <p className="right">
-                            <b>Sent On:</b> <u title={new Date(survey.dateSent).toString()}> {new Date(survey.dateSent).toLocaleDateString()} </u>
-                        </p>
-                    </div>
-                    <div className="card-action">
-                        <a href="#!"><b>Yes:</b> {survey.yes}</a>
-                        <a href="#!"><b>No:</b> {survey.no}</a>
-                        <a href="#!" className="right"><b>Avg. Rt. :</b> {(survey.yes / (survey.yes + survey.no)) ? ((survey.yes / (survey.yes + survey.no))*5) : 0} / 5</a>
-                    </div>
-                </div>
-              );
-        }).reverse(); //To reverse sort the surveys list
-    }
-
     renderFab() {
-        if(this.props.auth.creds > 0){
+        if(this.props.auth && this.props.auth.creds > 0){
             return(
                 <div className="fixed-action-btn">
                     <Link id='newSurvey' to= '/surveys/new' className="btn-floating btn-large red accent-2">
@@ -52,8 +23,18 @@ class Dashboard extends Component {
         }
     }
 
+    renderNoExistingSurveys() {
+        return(
+            <h4>
+                <blockquote className='flow-text'>You do not have any existing surveys...!!!</blockquote>
+                <blockquote className='flow-text'>Visit the <a href="/faq">FAQ</a> page to know how to add credits to your account and send new surveys.</blockquote> 
+                <blockquote className='flow-text'>To add credits, you can use "5555 5555 5555 4444" as card number and give any future date and any CVV because we do not accept real money.</blockquote>
+            </h4>
+        );
+    }
+
     renderDashboard() {
-        switch(this.props.auth){
+        switch(this.props.auth){    //checking if user is logged in or not
             case null:
                 return <img alt='preloader' className="loader" src={Images.preLoader}/>;
             case false:
@@ -62,18 +43,13 @@ class Dashboard extends Component {
                     <img src={Images.dashboardWithoutLogin} alt="dashboard without login" width="600px" height="450px"/>
                 </div>);
             default:
-                switch(this.props.survey){
+                switch(this.props.survey){ //checking if logged-in user has any surveys or not
                     case null:  
                         return <img alt='preloader' className="loader" src={Images.preLoader}/>;
                     case false:
                         return (
                             <div>
-                                <h4>
-                                    <blockquote className='flow-text'>You do not have any existing surveys...!!!</blockquote>
-                                    <blockquote className='flow-text'>Visit the <a href="/faq">FAQ</a> page to know how to add credits to your account and send new surveys.</blockquote> 
-                                    <blockquote className='flow-text'>To add credits, you can use "5555 5555 5555 4444" as card number and give any future date and any CVV because we do not accept real money.</blockquote>
-                                </h4>
-                                {this.renderFab()}
+                                {this.renderNoExistingSurveys()}
                             </div>
                         );
                     default:
@@ -81,10 +57,9 @@ class Dashboard extends Component {
                             <div>
                                 <h2>Dashboard</h2>
                                 <h5>Your existing surveys:</h5>
-                                {this.renderSurveyCards()}
-                                {this.renderFab()}
+                                <SurveyList />
                             </div>
-                            );
+                        );
                 }
         }
     }
@@ -92,24 +67,29 @@ class Dashboard extends Component {
     render() {
         return (
             <main>
-            <div className='container'>
-                {this.renderDashboard()}
-                <div id="deleteModal" className="modal bottom-sheet">
-                    <div className="modal-content">
-                        <h4>Delete Survey?</h4>
-                        <p>Do you really want to delete this survey?</p>
+                <div className='container'>
+                    {this.renderDashboard()}
+                    {this.renderFab()}
+
+                    {/* Delete Modal from Materialize CSS */}
+                    <div id="deleteModal" className="modal bottom-sheet">
+                        <div className="modal-content">
+                            <h4>Delete Survey?</h4>
+                            <p>Do you really want to delete this survey?</p>
+                        </div>
+                        <div className="modal-footer">
+                            <form id="deleteModalForm" method='POST'>
+                            <a href="#!" className="modal-close waves-effect waves-green btn-flat"><b>Cancel</b></a>
+                                <button className="modal-close waves-effect waves-green btn-flat">
+                                    Delete
+                                    <i className='material-icons right'>delete</i>
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                    <div className="modal-footer">
-                        <form id="deleteModalForm" method='POST'>
-                        <a href="#!" className="modal-close waves-effect waves-green btn-flat"><b>Cancel</b></a>
-                            <button className="modal-close waves-effect waves-green btn-flat">
-                                Delete
-                                <i className='material-icons right'>delete</i>
-                            </button>
-                        </form>
-                    </div>
+                    {/* Delete Modal from Materialize CSS */}
+                    
                 </div>
-            </div>
             </main>
         );
     };

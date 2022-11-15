@@ -9,7 +9,6 @@ const Mailer = require('../services/Mailer');
 const surveyTemplate = require('../services/emailTemplates/surveyTemplate');
 
 const Survey = mongoose.model('surveys');
-const AppRating = mongoose.model('appratings');
 
 module.exports = (app) => {
 
@@ -51,7 +50,7 @@ module.exports = (app) => {
         })
         .value();
 
-    res.send({});  //telling sendgrid that everything working fine.....chill...!!!
+    res.send({});  //telling sendgrid that everything working fine
     });
 
     //Delete a survey
