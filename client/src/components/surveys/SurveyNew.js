@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import SurveyForm from './SurveyForm';
 import SurveyFormReview from './SurveyFormReview';
+import M from 'materialize-css';
 
 class SurveyNew extends Component {
     state = { showFormReview: false }
@@ -15,7 +16,7 @@ class SurveyNew extends Component {
             />;
         }
 
-        return <SurveyForm onSurveySubmit={() => this.setState({ showFormReview: true })}/>;
+        return <SurveyForm onSurveySubmit={() => {this.setState({ showFormReview: true }); M.toast({html: 'Please check the data before sending the survey..!!!'})}}/>;
     }
 
     render() {
