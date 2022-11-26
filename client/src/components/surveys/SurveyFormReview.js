@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import formFields from './formFields';
 import * as actions from '../../actions';
+import M from 'materialize-css';
 
 const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
     const reviewFields = _.map(formFields, ({label, name}) => {
@@ -27,7 +28,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
             >
                 Back
             </button>
-            <button onClick={() => submitSurvey(formValues, history)} className='btn-flat green right white-text'>
+            <button onClick={() => {submitSurvey(formValues, history); M.toast({html: 'Your survey is sent..!!!', classes: 'rounded'})}} className='btn-flat green right white-text'>
                 Send Survey
                 <i className='material-icons right'>email</i>
             </button>

@@ -1,7 +1,7 @@
 const requireLogin = require('../middlewares/requireLogin');
 
 const passport = require('passport');
-const bcrypt = require('bcryptjs');
+// const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 
 const User = mongoose.model('users');
