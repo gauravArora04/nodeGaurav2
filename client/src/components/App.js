@@ -23,14 +23,18 @@ class App extends Component {
         M.AutoInit();
         
         document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.sidenav');
-            M.Sidenav.init(elems, {edge: 'right', draggable: 'true'});
-        });
+            var elemSideNav = document.querySelectorAll('.sidenav');
+            M.Sidenav.init(elemSideNav, { edge: 'right', draggable: 'true' });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.modal');
-            M.Modal.init(elems, { opacity: 1.0, dismissible: 'false' });
+            var elemModal = document.querySelectorAll('.modal');
+            M.Modal.init(elemModal, { opacity: 0.9 });
         });
+        
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     var elems = this.document.querySelector('.tap-target');
+        //     M.TapTarget.init(elems, { isOpen: 'true' });
+        // });
+        // M.TapTarget.getInstance(document.querySelectorAll(".tap-target")).open();
     }
 
     render() {

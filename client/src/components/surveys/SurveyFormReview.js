@@ -28,7 +28,13 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
             >
                 Back
             </button>
-            <button onClick={() => {submitSurvey(formValues, history); M.toast({html: 'Your survey is sent..!!!'})}} className='btn-flat green right white-text'>
+            <button 
+            onClick={() => {
+                submitSurvey(formValues, history);
+                M.toast({html: "<span>Sent...!!!</span><button onClick=\" var toastElement = document.querySelector('.toast'); var toastInstance = M.Toast.getInstance(toastElement); toastInstance.dismiss(); \" class='btn-flat toast-action'>X</button>", classes: 'rounded'})}
+                } 
+            className='btn-flat green right white-text'
+            >
                 Send Survey
                 <i className='material-icons right'>email</i>
             </button>

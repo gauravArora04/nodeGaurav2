@@ -16,7 +16,13 @@ class SurveyNew extends Component {
             />;
         }
 
-        return <SurveyForm onSurveySubmit={() => {this.setState({ showFormReview: true }); M.toast({html: 'Please check the data before sending the survey..!!!'})}}/>;
+        return <SurveyForm 
+            onSurveySubmit={ () => {
+                this.setState({ showFormReview: true });
+                M.toast({html: "<span>Please check the data before sending the survey..!!!</span><button onClick=\" var toastElement = document.querySelector('.toast'); var toastInstance = M.Toast.getInstance(toastElement); toastInstance.dismiss(); \" class='btn-flat toast-action'>X</button>", classes: 'rounded'})
+                }
+            }
+        />;
     }
 
     render() {
